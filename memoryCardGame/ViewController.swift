@@ -29,13 +29,21 @@ class ViewController: UIViewController {
     
     
     @IBAction func touchButton(_ sender: UIButton) {
-        flipCount += 1 //"🌼"
+        flipCount += 1 //
+        
       if  let cardNumber = cardButtons.firstIndex(of: sender)
       {
         game.cooseCard(at: cardNumber)
         updateViewFromModel()
-      } else{
-        print("chosen card was not in cardButtons")
+      }
+        if flipCount > 30 {
+           flipCountLabel.text = " Game Over "
+            for button in cardButtons {
+                //button.isEnabled = false
+                button.setTitle("", for: UIControl.State.normal)
+                button.backgroundColor = #colorLiteral(red: 0.7530761361, green: 1, blue: 0.9949988723, alpha: 1)
+            }
+            
         }
     }
     func updateViewFromModel(){
@@ -65,11 +73,16 @@ class ViewController: UIViewController {
         }
         return emoji[card.identifier] ?? "?"
     }
+   
     
     @IBAction func touchNewGame(_ sender: UIButton) {
+        
+        
         flipCount = 0
         game = MemoryCardGame(numberOfPairsOfcards: (cardButtons.count + 1 ) / 2) //new game
-        
+//       for index in cardButtons.indices {
+//           cardButtons[index].isEnabled = true
+//       }
         updateViewFromModel() //update from Model
     }
 }
