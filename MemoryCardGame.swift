@@ -17,7 +17,8 @@ class MemoryCardGame {
             let card = Card()
             cards += [card, card]
         }
-        shuffleCards()
+        //shuffleCards()
+        cards.shuffle()
     }
     
     var indexOfOneAndOnluFaceUpCard: Int?
@@ -33,9 +34,11 @@ class MemoryCardGame {
                     cards[matchedIndex].isMatched = true
                     cards[index].isMatched = true
                 }
-
+               
                 cards[index].isFaceUp = true
                 indexOfOneAndOnluFaceUpCard = nil
+               
+                
                
                 
             } else {
@@ -52,10 +55,10 @@ class MemoryCardGame {
     }
     
     //Shuffle the cards
-    func shuffleCards (){
-        for _ in 1...cards.count {
-            let randomIndex = Int(arc4random_uniform(UInt32(cards.count)))
-            cards.swapAt(0, randomIndex)
-        }
-    }
+//    func shuffleCards (){
+//        for _ in 1...cards.count {
+//            let randomIndex = Int(arc4random_uniform(UInt32(cards.count)))
+//            cards.swapAt(0, randomIndex)
+//        }
+//    }
 }
