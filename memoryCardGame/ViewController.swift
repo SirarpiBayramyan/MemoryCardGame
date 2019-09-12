@@ -76,9 +76,10 @@ class ViewController: UIViewController {
    
     
     @IBAction func touchNewGame(_ sender: UIButton) {
-        
-        
+    
         flipCount = 0
+        game.cards.removeAll()
+        emoji.removeAll()
         game = MemoryCardGame(numberOfPairsOfcards: (cardButtons.count + 1 ) / 2) //new game
 //       for index in cardButtons.indices {
 //           cardButtons[index].isEnabled = true
