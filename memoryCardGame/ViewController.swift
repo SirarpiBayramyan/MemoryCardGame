@@ -26,26 +26,32 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var flipCountLabel: UILabel!
     
-    
-    
+  
     @IBAction func touchButton(_ sender: UIButton) {
         flipCount += 1 //
-        
+         //sender.isEnabled = false
       if  let cardNumber = cardButtons.firstIndex(of: sender)
       {
         game.cooseCard(at: cardNumber)
+      
         updateViewFromModel()
+         //sender.isEnabled = false
       }
+        sender.isEnabled = false
+        
+        
         if flipCount > 30 {
            flipCountLabel.text = " Game Over "
             for button in cardButtons {
-                //button.isEnabled = false
+
                 button.setTitle("", for: UIControl.State.normal)
                 button.backgroundColor = #colorLiteral(red: 0.7530761361, green: 1, blue: 0.9949988723, alpha: 1)
+               // button.isEnabled = false
             }
-            
-        }
+
+      }
     }
+   
     func updateViewFromModel(){
         for index in cardButtons.indices {
             
@@ -54,11 +60,13 @@ class ViewController: UIViewController {
             if card.isFaceUp {
                 button.setTitle(emojiChoice(for: card), for: UIControl.State.normal)
                 button.backgroundColor = #colorLiteral(red: 0.9569379687, green: 0.8365390897, blue: 0.979655683, alpha: 1)
+                button.isEnabled = false
                 
             }else {
                 
                 button.setTitle("", for: UIControl.State.normal)
                 button.backgroundColor = card.isMatched ? #colorLiteral(red: 0.1298420429, green: 0.1298461258, blue: 0.1298439503, alpha: 0): #colorLiteral(red: 0.3236978054, green: 0.1063579395, blue: 0.574860394, alpha: 1)
+                button.isEnabled = true
             }
             
         }
@@ -79,11 +87,8 @@ class ViewController: UIViewController {
     
         flipCount = 0
         game.cards.removeAll()
-        emoji.removeAll()
+        //emoji.removeAll()
         game = MemoryCardGame(numberOfPairsOfcards: (cardButtons.count + 1 ) / 2) //new game
-//       for index in cardButtons.indices {
-//           cardButtons[index].isEnabled = true
-//       }
         updateViewFromModel() //update from Model
     }
 }
