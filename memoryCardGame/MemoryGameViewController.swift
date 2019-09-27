@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MemoryGameViewController: UIViewController {
 
     lazy  var game = MemoryCardGame(numberOfPairsOfcards: (cardButtons.count + 1) / 2)
     
@@ -18,9 +18,16 @@ class ViewController: UIViewController {
         }
     }
     
-    var emojiCoices = ["🍌","🥥","🍊","🍓","🍇","🍒","🍐","🥝","🍏","🍍"]
+    var theme: String? {
+        didSet {
+            emojiChoices = theme ?? ""
+            emoji = [:]
+            updateViewFromModel()
+        }
+    }
+    var emojiChoices = "🍌🥥🍊🍓🍇🍒🍐🥝🍏🍍"
     
-    var emoji = [Int:String]()
+    var emoji = [Card:String]()
     
     @IBOutlet var cardButtons: [UIButton]!
     
@@ -29,57 +36,62 @@ class ViewController: UIViewController {
   
     @IBAction func touchButton(_ sender: UIButton) {
         flipCount += 1 //
-         //sender.isEnabled = false
-      if  let cardNumber = cardButtons.firstIndex(of: sender)
-      {
-        game.cooseCard(at: cardNumber)
-      
-        updateViewFromModel()
-         //sender.isEnabled = false
-      }
+        //sender.isEnabled = false
+        if  let cardNumber = cardButtons.firstIndex(of: sender)
+        {
+            game.cooseCard(at: cardNumber)
+            
+            updateViewFromModel()
+            //sender.isEnabled = false
+        }
         sender.isEnabled = false
         
         
-        if flipCount > 30 {
-           flipCountLabel.text = " Game Over "
+        if flipCount > 40 {
+            flipCountLabel.text = " Game Over "
             for button in cardButtons {
-
+                
                 button.setTitle("", for: UIControl.State.normal)
                 button.backgroundColor = #colorLiteral(red: 0.7530761361, green: 1, blue: 0.9949988723, alpha: 1)
-               // button.isEnabled = false
+                // button.isEnabled = false
             }
-
-      }
+            
+        }
     }
    
-    func updateViewFromModel(){
+    func updateViewFromModel() {
+        guard cardButtons != nil else { return }
         for index in cardButtons.indices {
             
             let button = cardButtons[index]
             let card = game.cards[index]
             if card.isFaceUp {
-                button.setTitle(emojiChoice(for: card), for: UIControl.State.normal)
+                
+                button.setTitle(emoji(for: card), for: UIControl.State.normal)
                 button.backgroundColor = #colorLiteral(red: 0.9569379687, green: 0.8365390897, blue: 0.979655683, alpha: 1)
-                button.isEnabled = false
+               button.isEnabled = false
                 
             }else {
-                
-                button.setTitle("", for: UIControl.State.normal)
-                button.backgroundColor = card.isMatched ? #colorLiteral(red: 0.1298420429, green: 0.1298461258, blue: 0.1298439503, alpha: 0): #colorLiteral(red: 0.3236978054, green: 0.1063579395, blue: 0.574860394, alpha: 1)
                 button.isEnabled = true
+                button.setTitle("", for: UIControl.State.normal)
+
+                button.backgroundColor = card.isMatched ? #colorLiteral(red: 0.1298420429, green: 0.1298461258, blue: 0.1298439503, alpha: 0): #colorLiteral(red: 0.3236978054, green: 0.1063579395, blue: 0.574860394, alpha: 1)
+               // button.isEnabled = false
             }
             
         }
+        
     }
     
     
-    func emojiChoice(for card : Card) -> String {
-        if emoji[card.identifier] == nil, emojiCoices.count > 0 {
-            let randomIndex = Int(arc4random_uniform(UInt32(emojiCoices.count)))
-            emoji[card.identifier] = emojiCoices.remove(at: randomIndex)
+    func emoji(for card: Card)-> String {
+        if emoji[card] == nil , emojiChoices.count > 0 {
             
+            let randomStringIndex = emojiChoices.index(emojiChoices.startIndex, offsetBy: emojiChoices.count.arc4random)
+            emoji[card] = String(emojiChoices.remove(at: randomStringIndex)) //
         }
-        return emoji[card.identifier] ?? "?"
+        
+        return emoji[card] ?? "?"
     }
    
     
@@ -92,4 +104,14 @@ class ViewController: UIViewController {
         updateViewFromModel() //update from Model
     }
 }
-
+extension Int {
+    var arc4random: Int {
+        if self > 0 {
+            return Int(arc4random_uniform(UInt32(self)))
+        }else if self < 0{
+            return -Int(arc4random_uniform(UInt32(abs(self))))
+        }else{
+            return 0
+        }
+    }
+}

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="T7O-9V-lZO">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,17 +10,120 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Theme Cooser View Controller-->
+        <scene sceneID="S17-K8-c0R">
+            <objects>
+                <viewController id="h3W-vf-pnc" customClass="ThemeCooserViewController" customModule="memoryCardGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iPJ-tA-0LB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="m6H-Kl-7lb">
+                                <rect key="frame" x="150.5" y="330.5" width="113" height="240"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="50k-t7-C9M">
+                                        <rect key="frame" x="0.0" y="0.0" width="113" height="60"/>
+                                        <color key="backgroundColor" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <state key="normal" title="Sports">
+                                            <color key="titleColor" red="0.80613692530000003" green="1" blue="0.99250099089999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="changeTheme:" destination="h3W-vf-pnc" eventType="touchUpInside" id="idb-Sz-4Tp"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MbT-93-Wzc">
+                                        <rect key="frame" x="0.0" y="90" width="113" height="60"/>
+                                        <color key="backgroundColor" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <state key="normal" title="Fruits">
+                                            <color key="titleColor" red="0.80613692530000003" green="1" blue="0.99250099089999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="changeTheme:" destination="h3W-vf-pnc" eventType="touchUpInside" id="Ng6-Ni-7ju"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JLH-Ph-CFL">
+                                        <rect key="frame" x="0.0" y="180" width="113" height="60"/>
+                                        <color key="backgroundColor" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <state key="normal" title="Flags">
+                                            <color key="titleColor" red="0.80613692530000003" green="1" blue="0.99250099089999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="changeTheme:" destination="h3W-vf-pnc" eventType="touchUpInside" id="LbJ-n5-3L4"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.80613692530000003" green="1" blue="0.99250099089999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="m6H-Kl-7lb" firstAttribute="centerX" secondItem="jTH-ef-nzg" secondAttribute="centerX" id="rwH-Em-eBS"/>
+                            <constraint firstItem="m6H-Kl-7lb" firstAttribute="centerY" secondItem="jTH-ef-nzg" secondAttribute="centerY" id="ugP-Kh-SyI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jTH-ef-nzg"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="xQu-dE-oYV"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="showDetail" identifier="Show" id="tg6-HF-CRf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="32Q-r7-ArT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="105.79710144927537" y="-59.598214285714285"/>
+        </scene>
+        <!--Item 2-->
+        <scene sceneID="wvB-Qs-5IJ">
+            <objects>
+                <viewController id="tRd-gs-wgW" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cfV-5k-b2h">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="lNf-AY-jjL"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="6nQ-JL-Kl1"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gdo-WC-YFH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2732" y="1794"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="EjP-2C-zXC">
+            <objects>
+                <tabBarController id="T7O-9V-lZO" sceneMemberID="viewController">
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8f1-6J-1hG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="tRd-gs-wgW" kind="relationship" relationship="viewControllers" id="CuS-bM-j6S"/>
+                        <segue destination="iem-I6-7ba" kind="relationship" relationship="viewControllers" id="GLy-TF-4ec"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sYk-Ve-8Lp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3526" y="388"/>
+        </scene>
+        <!--Memory Game View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="memoryCardGame" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MemoryGameViewController" customModule="memoryCardGame" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Flip: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Em-Mp-WFf">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flip: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Em-Mp-WFf">
                                 <rect key="frame" x="98" y="732" width="218" height="67"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="67" id="QiE-Os-h7T"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <color key="textColor" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="highlightedColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -133,9 +236,8 @@
                                     <action selector="touchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iWv-io-jbe"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FIw-KL-rLK">
-                                <rect key="frame" x="132" y="807" width="151" height="46"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FIw-KL-rLK">
+                                <rect key="frame" x="135.5" y="807" width="143" height="48"/>
                                 <color key="backgroundColor" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="New Game">
@@ -147,6 +249,13 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.80613692534602333" green="1" blue="0.99250099086209975" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="6Em-Mp-WFf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BYY-ft-FG3"/>
+                            <constraint firstItem="6Em-Mp-WFf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="98" id="n81-Fm-FgQ"/>
+                            <constraint firstItem="6Em-Mp-WFf" firstAttribute="centerX" secondItem="FIw-KL-rLK" secondAttribute="centerX" id="qpK-sv-OPt"/>
+                            <constraint firstItem="FIw-KL-rLK" firstAttribute="top" secondItem="6Em-Mp-WFf" secondAttribute="bottom" constant="8" symbolic="YES" id="ssU-LX-XtF"/>
+                            <constraint firstAttribute="bottom" secondItem="6Em-Mp-WFf" secondAttribute="bottom" constant="97" id="taL-Ug-IbZ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
@@ -167,7 +276,44 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-523" y="-21"/>
+            <point key="canvasLocation" x="-804" y="943"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="zDq-Ae-cs2">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="beQ-B5-IIw" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="UPa-0y-dgJ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="h3W-vf-pnc" kind="relationship" relationship="rootViewController" id="NiS-Kl-d5X"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Pc-Pk-Xic" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-804.34782608695662" y="-60.267857142857139"/>
+        </scene>
+        <!--MemoryGame-->
+        <scene sceneID="K7n-Y7-Cbf">
+            <objects>
+                <splitViewController id="iem-I6-7ba" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="MemoryGame" id="pYg-SX-a1p">
+                        <color key="badgeColor" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
+                    <connections>
+                        <segue destination="beQ-B5-IIw" kind="relationship" relationship="masterViewController" id="2Rj-sr-foR"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="detailViewController" id="176-bE-2pk"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NH5-FJ-MQf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1725" y="-60"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="tg6-HF-CRf"/>
+    </inferredMetricsTieBreakers>
 </document>

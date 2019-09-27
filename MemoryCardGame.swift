@@ -13,6 +13,7 @@ class MemoryCardGame {
     var cards = [Card]()
     
     init(numberOfPairsOfcards: Int){
+        assert(numberOfPairsOfcards > 0, "Concentration.init \(numberOfPairsOfcards) : you nust have at least one pair cards ")
         for _ in 1...numberOfPairsOfcards {
             let card = Card()
             cards += [card, card]
@@ -21,44 +22,53 @@ class MemoryCardGame {
         cards.shuffle()
     }
     
-    var indexOfOneAndOnluFaceUpCard: Int?
-    
+    var indexOfOneAndOnluFaceUpCard: Int? {
+        get{
+            
+            return cards.indices.filter {
+                cards[$0].isFaceUp
+                }.oneAndOnly
+        }
+        set{
+            for index in cards.indices {
+                cards[index].isFaceUp = (index == newValue)
+            }
+        }
+    }
+  
     func cooseCard(at index: Int) {
         
+        assert(cards.indices.contains(index), "Concentration.chooseCard(at: \(index): chosen index not the cards")
+        
         if !cards[index].isMatched {
-    
+            
             if let matchedIndex = indexOfOneAndOnluFaceUpCard, matchedIndex != index {
                 
-                if cards[matchedIndex].identifier == cards[index].identifier {
-
+                if cards[matchedIndex] == cards[index] {
+                    
                     cards[matchedIndex].isMatched = true
                     cards[index].isMatched = true
+                    
                 }
-               
-                cards[index].isFaceUp = true
-                indexOfOneAndOnluFaceUpCard = nil
-               
                 
-               
+                cards[index].isFaceUp = true
                 
             } else {
                 
-                    for flipDownIndex in cards.indices {
-                        cards[flipDownIndex].isFaceUp = false
-                    }
-                    cards[index].isFaceUp = true
-                    indexOfOneAndOnluFaceUpCard = index
-                 }
+                indexOfOneAndOnluFaceUpCard = index
+                
+            }
             
-           }
+        }
         
     }
     
-    //Shuffle the cards
-//    func shuffleCards (){
-//        for _ in 1...cards.count {
-//            let randomIndex = Int(arc4random_uniform(UInt32(cards.count)))
-//            cards.swapAt(0, randomIndex)
-//        }
-//    }
 }
+extension Collection {
+    var oneAndOnly: Element? {
+        return count == 1 ? first :nil
+    }
+}
+
+
+
