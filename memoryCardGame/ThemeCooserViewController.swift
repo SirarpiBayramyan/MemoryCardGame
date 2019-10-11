@@ -8,8 +8,11 @@
 
 import UIKit
 
-class ThemeCooserViewController: UIViewController, UISplitViewControllerDelegate {
+class ThemeCooserViewController: VCLLoggingViewController, UISplitViewControllerDelegate {
     
+    override var vclLoggingName: String {
+        return "ThemeChooser"
+    }
     let themes = [
         "Fruits":"🍌🥥🍊🍓🍇🍒🍐🥝🍏🍍",
         "Sports":"⚽️🏀🏈⚾️🥎🎾🏐🏉🥏🎱🏓🏸⛸🥋🎽",

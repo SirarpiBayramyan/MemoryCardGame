@@ -8,8 +8,11 @@
 
 import UIKit
 
-class MemoryGameViewController: UIViewController {
+class MemoryGameViewController: VCLLoggingViewController {
 
+    override var vclLoggingName: String {
+        return "Game"
+    }
     lazy  var game = MemoryCardGame(numberOfPairsOfcards: (cardButtons.count + 1) / 2)
     
     var flipCount = 0 {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A1B9A502350CAA500BA421B /* VCLLoggingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1B9A4F2350CAA500BA421B /* VCLLoggingViewController.swift */; };
 		5A1E3A65233032EE001BC8C1 /* ThemeCooserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1E3A64233032EE001BC8C1 /* ThemeCooserViewController.swift */; };
 		5A4C84F22328CA30000727BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4C84F12328CA30000727BD /* AppDelegate.swift */; };
 		5A4C84F42328CA30000727BD /* MemoryGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4C84F32328CA30000727BD /* MemoryGameViewController.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5A1B9A4F2350CAA500BA421B /* VCLLoggingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCLLoggingViewController.swift; sourceTree = "<group>"; };
 		5A1E3A64233032EE001BC8C1 /* ThemeCooserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeCooserViewController.swift; sourceTree = "<group>"; };
 		5A4C84EE2328CA30000727BD /* memoryCardGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = memoryCardGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A4C84F12328CA30000727BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				5A1E3A64233032EE001BC8C1 /* ThemeCooserViewController.swift */,
+				5A1B9A4F2350CAA500BA421B /* VCLLoggingViewController.swift */,
 				5A4C84F32328CA30000727BD /* MemoryGameViewController.swift */,
 				5A4C85032328CA6B000727BD /* SupportFiles */,
 				5A4C84F52328CA30000727BD /* Main.storyboard */,
@@ -152,6 +155,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A1B9A502350CAA500BA421B /* VCLLoggingViewController.swift in Sources */,
 				5A4C85052328E3F2000727BD /* MemoryCardGame.swift in Sources */,
 				5A1E3A65233032EE001BC8C1 /* ThemeCooserViewController.swift in Sources */,
 				5A4C84F42328CA30000727BD /* MemoryGameViewController.swift in Sources */,
